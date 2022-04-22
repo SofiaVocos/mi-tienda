@@ -1,11 +1,13 @@
 import React from 'react'
-import logo from '../../logo.svg';
+import logo from '../../../logo.svg';
+import CartWidget from '../../CartWidget/CartWidget';
+
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 
-                    <a class="navbar-brand" href="#">
+                    <a className="navbar-brand" href="#">
                         <img src={logo} alt="" width="30" height="24"/>
                     </a>
             
@@ -31,9 +33,10 @@ const NavBar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">CONTACTOS</a>
+                            <a className="nav-link" href="#">CONTACTO</a>
                         </li>
                     </ul>
+                    <CartWidget/>
                 </div>
             </div>
         </nav>
