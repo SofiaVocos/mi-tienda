@@ -1,10 +1,11 @@
 import React from 'react'
-import logo from '../../../logo.svg';
-import CartWidget from '../../CartWidget/CartWidget';
+import logo from '../../logo.svg';
+import CartWidget from '../CartWidget/CartWidget';
+
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 
                     <a className="navbar-brand" href="#">
