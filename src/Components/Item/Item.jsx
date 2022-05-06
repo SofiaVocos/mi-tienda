@@ -1,9 +1,9 @@
 import React from 'react';
 import Icons from '../Icons/Icons';
 import {FaStar} from 'react-icons/fa';
-import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
-const Item = ({pictureUrl, pictureAlt, title, price}) => {
+const Item = ({id, pictureUrl, pictureAlt, title, price, stock}) => {
 
   return (
     <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mt-3">
@@ -19,9 +19,10 @@ const Item = ({pictureUrl, pictureAlt, title, price}) => {
             </div>
             <h4 className="card-title">{title}</h4>
             <p className="card-text font-bold">{price}</p>
-            <ItemCount
-            stock={5}
-            initial={1}/>
+            <div className='d-flex justify-content-center'>
+              <button type="button" className="btn btn-dark m-1 p-2">comprar</button>
+              <Link to={`/ItemDetailContainer/${id}`} className="btn btn-secondary m-1 p-2">ver detalles</Link>
+            </div>
           </div>
       </div>
     </div>
