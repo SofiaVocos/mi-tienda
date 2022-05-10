@@ -1,0 +1,25 @@
+a{
+    text-decoration: none !important;
+}
+
+.counter{
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0rem 1rem;
+    height: 2rem;
+}
+
+.add{
+    color: black;
+    background-color: #86A557;
+    border: #86A557;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 800;
+}
+
+.btn2{
+    margin-top: 1rem;
+}

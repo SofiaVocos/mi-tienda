@@ -1,29 +1,20 @@
 import React from 'react';
-import Icons from '../Icons/Icons';
-import {FaStar} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import './styleItem.css';
 
-const Item = ({id, pictureUrl, pictureAlt, title, price, stock}) => {
+
+const Item = ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4,}) => {
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mt-3">
-      <div className="card m-2">
+    <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
+      <div className="card">
         <img className="card-img-top" src={pictureUrl} alt={pictureAlt}/>
-          <div className="card-body text-center">
-            <div className="star pb-2 d-flex justify-content-center align-items-center">
-              <Icons Icon={FaStar} color={"yellow"} size={"20px"}/>
-              <Icons Icon={FaStar} color={"yellow"} size={"20px"}/>
-              <Icons Icon={FaStar} color={"yellow"} size={"20px"}/>
-              <Icons Icon={FaStar} color={"yellow"} size={"20px"}/>
-              <Icons Icon={FaStar} color={"yellow"} size={"20px"}/>
-            </div>
-            <h4 className="card-title">{title}</h4>
-            <p className="card-text font-bold">{price}</p>
-            <div className='d-flex justify-content-center'>
-              <button type="button" className="btn btn-dark m-1 p-2">comprar</button>
-              <Link to={`/ItemDetailContainer/${id}`} className="btn btn-secondary m-1 p-2">ver detalles</Link>
-            </div>
-          </div>
+        <div className="card-body">
+          <p className="category1">{category}</p>
+          <p className="card-title">{title}</p>
+          <h5 className="card-text font-bold">{price}</h5>
+          <Link to={`/ItemDetailContainer/${id}`} className="btn">AÑADIR AL CARRITO</Link>
+        </div>
       </div>
     </div>
   )

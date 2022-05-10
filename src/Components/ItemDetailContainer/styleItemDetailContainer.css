@@ -4,8 +4,7 @@
     --green: #008744;
     --yellow: #ffa700;
     position: relative;
-    width: 60px;
-    margin-top: 25%;
+    margin: 15% auto;
 }
 
 .spinner:before {

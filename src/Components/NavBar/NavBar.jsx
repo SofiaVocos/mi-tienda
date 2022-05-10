@@ -1,97 +1,92 @@
 import React from 'react';
-import './NavBar.css'
-import logo from '../../Assets/logo.png';
+import './styleNavBar.css';
 import Icons from '../Icons/Icons';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaUserAlt, FaHeart } from 'react-icons/fa';
 import CartWidget from '../CartWidget/CartWidget';
+import mate from '../../Assets/mate.png';
+import { Link, NavLink} from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({category}) => {
     return (
         <>
             <header className='sticky-top'>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-navbar">
+
+                <div className="text-center nav1">
                     <div className="container-fluid">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <div className="row">
+                            <div className="col-md-5 col-sm-12 mb-1">
+                                <form className="d-flex input-group w-auto my-auto mb-3">
+                                    <input type="search" className="form-control" placeholder="¿Qué estás buscando?" />
+                                    <span className="input-group-text border-0 d-flex ml-1">
+                                        <Icons Icon={FaSearch} color={"FCE373"} size={"20px"} />
+                                    </span>
+                                </form>
+                            </div>
+
+                            <div className="col-md-7 col-sm-12 d-flex justify-content-center justify-content-md-end align-items-center">
+                                <div className="pr-5 pt-2">
+                                    <Icons Icon={FaUserAlt} color={"FCE373"} size={"20px"} />
+                                    <p>Mi cuenta</p>
+                                </div>
+                                <div className="pr-5 pt-2">
+                                    <CartWidget />
+                                    <p>Mi carrito</p>
+                                </div>
+                                <div className="pr-2 pt-2">
+                                    <Icons Icon={FaHeart} color={"FCE373"} size={"20px"} />
+                                    <p>Mis favs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav className="navbar navbar-expand-lg navbar-dark nav-custom nav2">
+                    <div className="container-fluid">
+                        <Link className="navbar-brand logo" to="/">
+                            <img src={mate} alt="logotipo" loading='Mateico' />
+                            <div>
+                                <div>
+                                    <h1 className='border'>mateico</h1>
+                                    <h1 className='wave'>mateico</h1>
+                                </div>
+                                <p>ARG</p>
+                            </div>
+                        </Link>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse pb-2 justify-content-between" id="navbarSupportedContent">
+                        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">INICIO</a>
+                                    <NavLink className="nav-link" to="/">INICIO</NavLink>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="/" id="navbardrop"
                                         data-toggle="dropdown">PRODUCTOS</a>
                                     <div className="dropdown-menu">
-                                        <a className="dropdown-item" href="/">VER TODOS</a>
-                                        <a className="dropdown-item" href="/">NATURALEZA</a>
-                                        <a className="dropdown-item" href="/">MUNDI</a>
-                                        <a className="dropdown-item" href="/">FRASES</a>
-                                        <a className="dropdown-item" href="/">ABSTRACTOS Y GEOMÉTRICOS</a>
-                                        <a className="dropdown-item" href="/">ANIMALES</a>
-                                        <a className="dropdown-item" href="/">MÚSICA</a>
-                                        <a className="dropdown-item" href="/">DEPORTE</a>
-                                        <a className="dropdown-item" href="/">FOOD</a>
+                                        {/* <a href='/' className="dropdown-item">MATES</a>
+                                        <a href='/' className="dropdown-item">BOMBILLAS</a>
+                                        <a href='/' className="dropdown-item">MATERAS</a>
+                                        <a href='/' className="dropdown-item">YERBAS</a>
+                                        <a href='/' className="dropdown-item">VER TODOS</a> */}
+                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">MATES</Link>
+                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">BOMBILLAS</Link>
+                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">MATERAS</Link>
+                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">YERBAS</Link>
+                                        <Link to={`/ItemListContainer`} className="dropdown-item">VER TODOS</Link>
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">CONTACTO</a>
+                                    <NavLink className="nav-link" to="/Contact">CONTACTO</NavLink>
                                 </li>
                             </ul>
-                            <a className="navbar-brand" href="/">
-                                <img src={logo} alt="logotipo" loading="Encuadrarte" width="100px" height="55px" />
-                            </a>
-                            <div>
-                                <form className="d-flex">
-                                    <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-                                    <button className="btn btn-outline-success" style={{ backgroundColor: "#231F20" }} type="submit">
-                                        <Icons Icon={FaSearch} color={"FCE373"} size={"25px"} />
-                                    </button>
-                                    <CartWidget/>
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </nav>
             </header>
         </>
-
-        // <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        //     <div className="container-fluid">
-
-        //             <a className="navbar-brand" href="/">
-        //                 <img src={logo} alt="" width="30" height="24"/>
-        //             </a>
-
-        //         <a className="navbar-brand" href="/">INICIO</a>
-        //         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        //             <span className="navbar-toggler-icon"></span>
-        //         </button>
-        //         <div className="collapse navbar-collapse" id="navbarNav">
-        //             <ul className="navbar-nav">
-        //                 <li className="nav-item dropdown">
-        //                     <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        //                         PRODUCTOS
-        //                     </a>
-        //                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        //                         <li><a className="dropdown-item" href="/">VER TODOS</a></li>
-        //                         <li><a className="dropdown-item" href="/">PAISAJE Y NATURALEZA</a></li>
-        //                         <li><a className="dropdown-item" href="/">CIUDADES Y MAPAS</a></li>
-        //                         <li><a className="dropdown-item" href="/">FRASES Y TEXTOS</a></li>
-        //                         <li><a className="dropdown-item" href="/">ABSTRACTOS Y GEOMETRICOS</a></li>
-        //                         <li><a className="dropdown-item" href="/">ANIMALES</a></li>
-        //                         <li><a className="dropdown-item" href="/">MUSICA Y DEPORTES</a></li>
-        //                         <li><a className="dropdown-item" href="/">FOOD</a></li>
-        //                     </ul>
-        //                 </li>
-        //                 <li className="nav-item">
-        //                     <a className="nav-link" href="/">CONTACTO</a>
-        //                 </li>
-        //             </ul>
-        //             <CartWidget/>
-        //         </div>
-        //     </div>
-        // </nav>
     )
 }
 

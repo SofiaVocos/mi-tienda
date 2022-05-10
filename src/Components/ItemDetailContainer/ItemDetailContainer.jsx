@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { data } from '../../Data/data';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import './itemDetailContainer.css';
+import './styleItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
 
@@ -10,12 +10,12 @@ const ItemDetailContainer = () => {
 
     const { ItemId } = useParams()
 
-    const filt = data.find(item => item.id === Number(ItemId))
+    const filtId = data.find((item) => item.id === Number(ItemId))
 
     const getItem = () => {
         const getItemPromise = new Promise((resolve, reject) => {
             setTimeout (() => {
-                resolve(filt)
+                resolve(filtId)
             }, 2000);
         });
 
@@ -48,10 +48,11 @@ const ItemDetailContainer = () => {
                 : (
                     <div className="spinner">
                         <svg viewBox="25 25 50 50" className="circular">
-                            <circle stroke-miterlimit="10" stroke-width="3" fill="none" r="20" cy="50" cx="50" className="path"></circle>
+                            <circle strokeMiterlimit="10" strokeWidth="3" fill="none" r="20" cy="50" cx="50" className="path"></circle>
                         </svg>
                     </div>
-                )}
+                )
+            }
         </>
         
     );

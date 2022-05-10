@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Kanit', sans-serif;
+    background-image: url("https://img.freepik.com/foto-gratis/fondo-madera-claro_53876-88877.jpg?w=2000");
+    padding-bottom: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: black !important;
+    background-color: transparent !important;
+}
+
+.nav1 {
+    background-color: black;
+    padding: 1rem 1rem 0rem;
+}
+
+.nav1 p {
+    color: #FCE373;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.form-control {
+    border: 3px solid #86A557 !important;
+    height: calc(1.5em + 1.2rem + 2px);
+}
+
+.input-group-text {
+    background-color: #86A557;
+    padding: 0.3rem 0.75rem;  
+}
+
+.nav2 {
+    background-color: #b7df7c;
+}
+
+.navbar {
+    padding: 0rem 1rem;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+.nav-custom {
+    font-size: 1rem;
+    font-weight: 600;
+    top: 0;
+}
+
+.nav-custom a {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.nav-custom li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    background-color: #86A557;
+    border: none;
+}
+
+.dropdown-menu a {
+    font-weight: 600;
+}
+
+.logo h1 {
+    position: absolute;
+    padding-top: 0.5rem;
+}
+
+.logo p {
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 6.5rem;
+    margin-top: 2.8rem;
+    margin-bottom: 0.1rem;
+}
+
+.logo img {
+    margin-bottom: 0.2rem;
+}
+
+.border {
+    color: #86A557;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    border: none !important;
+}
+
+.wave {
+    color: black;
+    animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        clip-path: polygon(0% 47%, 10% 48%, 33% 54%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './itemList.css'
+import './styleItemList.css';
 import Item from '../Item/Item';
 
 const ItemList = ({ products }) => { //products es un PARÁMETRO
@@ -12,16 +12,23 @@ const ItemList = ({ products }) => { //products es un PARÁMETRO
             <Item
               key={item.id}
               id={item.id}
+              title={item.title}
               pictureUrl={item.pictureUrl}
               pictureAlt={item.pictureAlt}
-              title={item.title}
+              category={item.category}
+              description={item.description}
               price={item.price}
-              stock={item.stock}/>
+              stock={item.stock}
+              img1={item.img1}
+              img2={item.img2}
+              img3={item.img3}
+              img4={item.img4}
+              />
           ))
         ) : (
           <div className="spinner">
             <svg viewBox="25 25 50 50" className="circular">
-              <circle stroke-miterlimit="10" stroke-width="3" fill="none" r="20" cy="50" cx="50" className="path"></circle>
+              <circle strokeMiterlimit="10" strokeWidth="3" fill="none" r="20" cy="50" cx="50" className="path"></circle>
             </svg>
           </div>
         )}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Icons from '../Icons/Icons';
 import {FaShoppingCart} from 'react-icons/fa';
+import './styleCartWidget.css'
 
 const CartWidget = (cantProducts, contar) => {
 
@@ -8,9 +9,10 @@ const CartWidget = (cantProducts, contar) => {
 
     return (
         <div>
-            <form className='d-flex'>
-                <Icons Icon={FaShoppingCart} color={"black"} size={"25px"}/>
-                <p className='item-count'>{cantProducts}</p>
+            <form className='text-reset me-3'>
+                <Icons Icon={FaShoppingCart} color={"FCE373"} size={"20px"}/>
+                <span className="badge rounded-pill bg-danger">{cantProducts}</span>
+                {/* <p className='item-count'>{cantProducts}</p> */}
             </form>
         </div>
     )

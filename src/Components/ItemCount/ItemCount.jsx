@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './styleItemCount.css'
 
 const ItemCount = ({ stock, initial, onAdd }) => {
 
@@ -26,16 +27,18 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
         <>
-            <div className='d-flex justify-content-center p-1'>
-                <button type="button" className="btn btn-secondary" onClick={restar}>-</button>
-                <p className='m-2'>{counter}</p>
-                <button type="button" className="btn btn-secondary" onClick={sumar}>+</button>
+            <div className='container-fluid d-flex flex-column align-items-center'>
+                <div className='d-flex justify-content-center'>
+                    <button type="button" className="add" onClick={restar}>−</button>
+                    <p className='counter'>{counter}</p>
+                    <button type="button" className="add" onClick={sumar}>+</button>
+                </div>
+                <a href="/">
+                    <div className='d-flex justify-content-center'>
+                        <button type="button" className="btn btn2" onClick={addCart}>AÑADIR AL CARRITO</button>
+                    </div>
+                </a>
             </div>
-            <a href="/">
-              <div className='d-flex justify-content-center'>
-                <button type="button" className="btn btn-dark m-1 p-2" onClick={addCart}>Agregar al carrito</button>
-              </div>
-            </a>
         </>
     )
 }
