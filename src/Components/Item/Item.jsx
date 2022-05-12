@@ -13,7 +13,7 @@ const Item = ({id, title, pictureUrl, pictureAlt, category, description, price, 
           <p className="category1">{category}</p>
           <p className="card-title">{title}</p>
           <h5 className="card-text font-bold">{price}</h5>
-          <Link to={`/ItemDetailContainer/${id}`} className="btn">AÑADIR AL CARRITO</Link>
+          <Link to={`/ItemDetailContainer/${id}`} className="btn">VER DETALLES</Link>
         </div>
       </div>
     </div>

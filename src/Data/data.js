@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: 1,
+    id: '1',
     title:'IMPERIAL CRIOLLO',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL CRIOLLO',
@@ -15,7 +15,7 @@ export const data = [
   },
 
   {
-    id: 2,
+    id: '2',
     title:'IMPERIAL DELUXE',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL DELUXE',
@@ -30,7 +30,7 @@ export const data = [
   },
 
   {
-    id: 3,
+    id: '3',
     title:'IMPERIAL GOLD',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL GOLD',
@@ -45,7 +45,7 @@ export const data = [
   },
 
   {
-    id: 4,
+    id: '4',
     title:'IMPERIAL PREMIUM',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL PREMIUM',
@@ -60,7 +60,7 @@ export const data = [
   },
 
   {
-    id: 5,
+    id: '5',
     title:'IMPERIAL PREMIUM CON BASE',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL',
@@ -75,11 +75,56 @@ export const data = [
   },
 
   {
-    id: 6,
+    id: '6',
+    title:'IMPERIAL CLÁSICO',
+    pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    pictureAlt: 'IMPERIAL CLÁSICO',
+    category: 'MATES',
+    description:'klsañslas',
+    price: '$ 1.400',
+    stock: '4',
+    img1:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img2:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img3:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img4:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+  },
+
+  {
+    id: '7',
     title:'IMPERIAL CLÁSICO',
     pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
     pictureAlt: 'IMPERIAL CLÁSICO',
     category: 'BOMBILLAS',
+    description:'klsañslas',
+    price: '$ 1.400',
+    stock: '4',
+    img1:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img2:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img3:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img4:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+  },
+
+  {
+    id: '8',
+    title:'IMPERIAL CLÁSICO',
+    pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    pictureAlt: 'IMPERIAL CLÁSICO',
+    category: 'MATERAS',
+    description:'klsañslas',
+    price: '$ 1.400',
+    stock: '4',
+    img1:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img2:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img3:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    img4:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+  },
+
+  {
+    id: '9',
+    title:'IMPERIAL CLÁSICO',
+    pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/666/155/products/m411-7742d3f77015d91ea016246265282545-240-0.jpg',
+    pictureAlt: 'IMPERIAL CLÁSICO',
+    category: 'YERBAS',
     description:'klsañslas',
     price: '$ 1.400',
     stock: '4',

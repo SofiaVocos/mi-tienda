@@ -21,10 +21,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     };
 
-    const addCart = () => {
-        onAdd(counter)
-    }
-
     return (
         <>
             <div className='container-fluid d-flex flex-column align-items-center'>
@@ -33,11 +29,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                     <p className='counter'>{counter}</p>
                     <button type="button" className="add" onClick={sumar}>+</button>
                 </div>
-                <a href="/">
+
+                
                     <div className='d-flex justify-content-center'>
-                        <button type="button" className="btn btn2" onClick={addCart}>AÑADIR AL CARRITO</button>
+                        <button type="button" className="btn btn2" onClick ={() => onAdd (counter)}>AÑADIR AL CARRITO</button>
                     </div>
-                </a>
             </div>
         </>
     )

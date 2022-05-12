@@ -6,7 +6,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import mate from '../../Assets/mate.png';
 import { Link, NavLink} from 'react-router-dom';
 
-const NavBar = ({category}) => {
+const NavBar = () => {
     return (
         <>
             <header className='sticky-top'>
@@ -66,15 +66,10 @@ const NavBar = ({category}) => {
                                     <a className="nav-link dropdown-toggle" href="/" id="navbardrop"
                                         data-toggle="dropdown">PRODUCTOS</a>
                                     <div className="dropdown-menu">
-                                        {/* <a href='/' className="dropdown-item">MATES</a>
-                                        <a href='/' className="dropdown-item">BOMBILLAS</a>
-                                        <a href='/' className="dropdown-item">MATERAS</a>
-                                        <a href='/' className="dropdown-item">YERBAS</a>
-                                        <a href='/' className="dropdown-item">VER TODOS</a> */}
-                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">MATES</Link>
-                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">BOMBILLAS</Link>
-                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">MATERAS</Link>
-                                        <Link to={`/ItemListContainer/${category}`} className="dropdown-item">YERBAS</Link>
+                                        <Link to={`/ItemListContainer/mates`} className="dropdown-item">MATES</Link>
+                                        <Link to={`/ItemListContainer/bombillas`} className="dropdown-item">BOMBILLAS</Link>
+                                        <Link to={`/ItemListContainer/materas`} className="dropdown-item">MATERAS</Link>
+                                        <Link to={`/ItemListContainer/yerbas`} className="dropdown-item">YERBAS</Link>
                                         <Link to={`/ItemListContainer`} className="dropdown-item">VER TODOS</Link>
                                     </div>
                                 </li>

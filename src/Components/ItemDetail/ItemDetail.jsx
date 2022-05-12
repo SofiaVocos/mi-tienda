@@ -1,8 +1,16 @@
-import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styleItemDetail.css';
 
-const ItemDetail = ({ productDetail }) => {
+const ItemDetail = ({ productDetail}) => {
+
+    const [quantityBuy, setQuantityBuy] = useState(false)
+    
+    const onAdd = (counter) => {
+        setQuantityBuy(true)
+        console.log (counter)
+    }
 
     return (
         <>
@@ -26,20 +34,27 @@ const ItemDetail = ({ productDetail }) => {
                         <p className='stock'>{productDetail.stock} DISPONIBLES</p>
                         <div className='rating'>
                             <input type="radio" name="rating" value="5" id="5"/>
-                            <label>☆</label>
+                            <label htmlFor='5'>☆</label>
                             <input type="radio" name="rating" value="4" id="4"/>
-                            <label>☆</label>
+                            <label htmlFor='4'>☆</label>
                             <input type="radio" name="rating" value="3" id="3"/>
-                            <label>☆</label>
+                            <label htmlFor='3'>☆</label>
                             <input type="radio" name="rating" value="2" id="2"/>
-                            <label>☆</label>
+                            <label htmlFor='2'>☆</label>
                             <input type="radio" name="rating" value="1" id="1"/>
-                            <label>☆</label>
+                            <label htmlFor='1'>☆</label>
                         </div>
-                        <ItemCount
-                            stock={productDetail.stock}
-                            initial={1}
-                        />
+
+                        {quantityBuy ? (
+                            <Link to="/Cart" className="btn btn2">FINALIZAR COMPRA</Link>
+                        ) : (
+                            <ItemCount
+                                stock={productDetail.stock}
+                                initial={1}
+                                onAdd={onAdd}
+                            />
+                        )}
+
                         <p className='category'>CATEGORÍA: {productDetail.category}</p>
                     </div>
                 </div>

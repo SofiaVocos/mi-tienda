@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
 
     const { ItemId } = useParams()
 
-    const filtId = data.find((item) => item.id === Number(ItemId))
+    const filtId = data.find((item) => item.id === (ItemId))
 
     const getItem = () => {
         const getItemPromise = new Promise((resolve, reject) => {

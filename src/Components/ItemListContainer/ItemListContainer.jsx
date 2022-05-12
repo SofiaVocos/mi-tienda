@@ -1,20 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList';
 import { data } from '../../Data/data';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
   const [products, setProducts] = useState ([]); //Los useState se colocan arriba de todo
+  
+  const { CategoryId } = useParams()
 
-  useEffect(()=>{
-    const promise = new Promise ((resolve,reject) => {
-      
+  
+  const getProducts = () => {
+    const getProductsPromise = new Promise ((resolve,reject) => {
       setTimeout (() => {
-        resolve (data)
+        
+        let filtCat = data
+
+        if (CategoryId === 'mates'){
+          filtCat=data.filter((mate => mate.category === 'MATES'))
+        }
+
+        if (CategoryId === 'bombillas'){
+          filtCat=data.filter((mate => mate.category === 'BOMBILLAS'))
+        }
+
+        if (CategoryId === 'materas'){
+          filtCat=data.filter((mate => mate.category === 'MATERAS'))
+        }
+
+        if (CategoryId === 'yerbas'){
+          filtCat=data.filter((mate => mate.category === 'YERBAS'))
+        }
+
+        resolve (filtCat)
       }, 2000);
     });
 
-    promise
+    getProductsPromise
     .then ((res) => {
       setProducts (res) //Guardo la respuesta (res) devuelta en mi useState (Estado)
     })
@@ -25,7 +47,15 @@ const ItemListContainer = ({greeting}) => {
 
     return ()=> {
     }
-  }, []);
+  };
+
+  useEffect(()=>{
+    
+    getProducts ()
+
+    return ()=> {
+    }
+  }, [CategoryId]);
 
 
   return (
