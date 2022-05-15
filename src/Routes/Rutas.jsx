@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
-import Home from '../Home/Home';
-import Layout from '../Layout/Layout';
-import Contact from '../Contact/Contact';
-import Error from '../Error/Error';
-import Cart from '../Cart/Cart';
+import ItemListContainer from '../Components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from '../Components/ItemDetailContainer/ItemDetailContainer';
+import Home from '../Views/Home/Home';
+import Layout from '../Components/Layout/Layout';
+import Contact from '../Views/Contact/Contact';
+import Error from '../Views/Error/Error';
+import Cart from '../Components/Cart/Cart';
 
 const Rutas = () => {
   return (

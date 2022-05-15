@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './styleItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd}) => {
 
     const [counter, setCounter] = useState(initial);
 
@@ -32,7 +32,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
                 
                     <div className='d-flex justify-content-center'>
-                        <button type="button" className="btn btn2" onClick ={() => onAdd (counter)}>AÑADIR AL CARRITO</button>
+                        <button type="button" className="btn btn2" onClick ={() => onAdd (counter) }>AÑADIR AL CARRITO</button>
                     </div>
             </div>
         </>

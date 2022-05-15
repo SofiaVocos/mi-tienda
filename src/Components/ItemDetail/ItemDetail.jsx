@@ -1,9 +1,12 @@
-import ItemCount from '../ItemCount/ItemCount';
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { GlobalContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
 import './styleItemDetail.css';
 
 const ItemDetail = ({ productDetail}) => {
+
+    const {carrito, addItem} = useContext (GlobalContext)
 
     const [quantityBuy, setQuantityBuy] = useState(false)
     
@@ -11,6 +14,16 @@ const ItemDetail = ({ productDetail}) => {
         setQuantityBuy(true)
         console.log (counter)
     }
+
+    const [state, setState] = useState ({
+        
+    })
+
+    useEffect(() => {
+        setState ({productDetail})
+    }, [productDetail])
+    
+    console.log (carrito)
 
     return (
         <>
@@ -46,7 +59,7 @@ const ItemDetail = ({ productDetail}) => {
                         </div>
 
                         {quantityBuy ? (
-                            <Link to="/Cart" className="btn btn2">FINALIZAR COMPRA</Link>
+                            <Link to="/Cart" className="btn btn2" onClick ={() => addItem (state)}>FINALIZAR COMPRA</Link>
                         ) : (
                             <ItemCount
                                 stock={productDetail.stock}

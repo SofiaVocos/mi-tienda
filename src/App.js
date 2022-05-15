@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Rutas from './Components/Routes/Rutas';
-
+import CartContext from './Context/CartContext';
+import Rutas from './Routes/Rutas';
 
 function App() {
-
   return (
     <>
-      <Rutas/>
-    </>
+      <CartContext>
+        <Rutas/>
+      </CartContext>
+    </> //Todo lo que esté adentro de GlobalStateContext puede acceder a la información del value. Pueden usarla o no pero siempre tienen acceso.
   );
 }
 
