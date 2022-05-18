@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './styleItemDetail.css';
 
-const ItemDetail = ({ productDetail}) => {
+const ItemDetail = ({ productDetail: {id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4}}) => {
 
     const {carrito, addItem} = useContext (GlobalContext)
 
@@ -20,8 +20,8 @@ const ItemDetail = ({ productDetail}) => {
     })
 
     useEffect(() => {
-        setState ({productDetail})
-    }, [productDetail])
+        setState ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4})
+    }, [title])
     
     console.log (carrito)
 
@@ -31,20 +31,20 @@ const ItemDetail = ({ productDetail}) => {
                 <div className='row container-fluid'>
                     <div className='col-lg-8 col-md-12 carrusel'>
                         <div className='carrusel-left d-flex flex-column'>
-                            <img src={productDetail.img1} alt={productDetail.pictureAlt}/>
-                            <img src={productDetail.img2} alt={productDetail.pictureAlt}/>
-                            <img src={productDetail.img3} alt={productDetail.pictureAlt}/>
-                            <img src={productDetail.img4} alt={productDetail.pictureAlt}/>
+                            <img src={img1} alt={pictureAlt}/>
+                            <img src={img2} alt={pictureAlt}/>
+                            <img src={img3} alt={pictureAlt}/>
+                            <img src={img4} alt={pictureAlt}/>
                         </div>
                         <div className='carrusel-right'>
-                            <img src={productDetail.pictureUrl} alt={productDetail.pictureAlt}/>
+                            <img src={pictureUrl} alt={pictureAlt}/>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-12 information">
-                        <h2 className='title'>{productDetail.title}</h2>
-                        <h3 className='price'>{productDetail.price}</h3>
-                        <p>{productDetail.description}</p>
-                        <p className='stock'>{productDetail.stock} DISPONIBLES</p>
+                        <h2 className='title'>{title}</h2>
+                        <h3 className='price'>${price}</h3>
+                        <p>{description}</p>
+                        <p className='stock'>{stock} DISPONIBLES</p>
                         <div className='rating'>
                             <input type="radio" name="rating" value="5" id="5"/>
                             <label htmlFor='5'>☆</label>
@@ -59,16 +59,19 @@ const ItemDetail = ({ productDetail}) => {
                         </div>
 
                         {quantityBuy ? (
-                            <Link to="/Cart" className="btn btn2" onClick ={() => addItem (state)}>FINALIZAR COMPRA</Link>
+                            <>
+                                <Link to="/Cart" className="btn btn2" onClick ={() => addItem (state)}>FINALIZAR COMPRA</Link>
+                                <Link to="/ItemListContainer" className="btn btn2" onClick ={() => addItem (state)}>CONTINUAR COMPRA</Link>
+                            </>
                         ) : (
                             <ItemCount
-                                stock={productDetail.stock}
+                                stock={stock}
                                 initial={1}
                                 onAdd={onAdd}
                             />
                         )}
 
-                        <p className='category'>CATEGORÍA: {productDetail.category}</p>
+                        <p className='category'>CATEGORÍA: {category}</p>
                     </div>
                 </div>
             </div>

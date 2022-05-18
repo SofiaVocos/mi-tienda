@@ -7,21 +7,20 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
     const [carrito, setCarrito] = useState ([])
   
 
-    const addItem = (producto) => {
-      setCarrito([...carrito, producto])
+    const addItem = (product) => {
+      setCarrito([...carrito, product])
     };
     
-    // const removeItem = (itemIdRemove) =>{
-    //   const remove = carrito.filter ((_item, index) => index !== itemIdRemove)
+    const removeItem = (id) =>{
+      const remove = carrito.filter (product=>product.id !== id)
+      setCarrito(remove)
+    }; 
 
-    //   setCarrito(remove)
-    // }; 
-
-    // const clear = () => setCarrito ([]);
+    const clear = () => setCarrito ([]);
   
 
   return ( //PASO 3: Utilizo el Context, es decir, utilizo el GlobalContext para proveer información. Indico que es el PROVEEDOR
-    <GlobalContext.Provider value={{carrito, addItem}}>
+    <GlobalContext.Provider value={{carrito, addItem, removeItem, clear}}>
         {children} 
     </GlobalContext.Provider> 
   ) 

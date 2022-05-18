@@ -23,7 +23,7 @@ const ItemList = ({ products }) => { //products es un PARÁMETRO
               img2={item.img2}
               img3={item.img3}
               img4={item.img4}
-              />
+            />
           ))
         ) : (
           <div className="spinner">

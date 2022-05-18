@@ -1,0 +1,112 @@
+.card-1 {
+    background-color: white;
+    height: auto;
+    padding: 2rem 3rem 3rem;
+    margin: 2rem auto;
+    max-width: 95%;
+}
+
+.row-1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cartItem {
+    border: 2px #86a557 dashed;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    height: 10rem;
+}
+
+.cartTitle {
+    margin: auto auto;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cartImg img {
+    margin: auto auto;
+    height: 9rem;
+    object-position: 50% 0%;
+}
+
+.cartPrice {
+    margin: auto auto;
+    text-align: center;
+}
+
+.cartRemove {
+    margin: auto auto;
+    text-align: end;
+}
+
+.remove {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.total {
+    margin-left: 5rem;
+}
+
+.clear button {
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #e62222;
+}
+
+.clear button,
+button span {
+    transition: 200ms;
+}
+
+.clear button .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+}
+
+.clear button .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(160px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear button svg {
+    width: 15px;
+    fill: #eee;
+}
+
+.clear button:hover {
+    background: #ff3636;
+}
+
+.clear button:hover .text {
+    color: transparent;
+}
+
+.clear button:hover .icon {
+    width: 200px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.clear button:focus {
+    outline: none;
+}
+
+.clear button:active .icon svg {
+    transform: scale(0.8);
+}
