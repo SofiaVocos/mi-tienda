@@ -5,7 +5,7 @@ import { BsFillTrashFill, BsInfoCircle } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import './styleCart.css'
 
-const Cart = () => {
+const Cart = (cantidad) => {
 
   const { carrito, removeItem, clear } = useContext(GlobalContext) //useContext es el Hook para CONSUMIR la información y en los () va el NOMBRE DEL CONTEXT que queremos consumir.
 
@@ -29,6 +29,7 @@ const Cart = () => {
 
                   <div className='cartTitle col-lg-4'>
                     <h4>{item.title}</h4>
+                    <h5>Categría: {item.category}</h5>
                   </div>
 
                   <div className='cartPrice col-lg-4'>
