@@ -66,10 +66,10 @@ const NavBar = () => {
                                     <a className="nav-link dropdown-toggle" href="/" id="navbardrop"
                                         data-toggle="dropdown">PRODUCTOS</a>
                                     <div className="dropdown-menu">
-                                        <Link to={`/ItemListContainer/mates`} className="dropdown-item">MATES</Link>
-                                        <Link to={`/ItemListContainer/bombillas`} className="dropdown-item">BOMBILLAS</Link>
-                                        <Link to={`/ItemListContainer/materas`} className="dropdown-item">MATERAS</Link>
-                                        <Link to={`/ItemListContainer/yerbas`} className="dropdown-item">YERBAS</Link>
+                                        <Link to={`/ItemListContainer/MATES`} className="dropdown-item">MATES</Link>
+                                        <Link to={`/ItemListContainer/BOMBILLAS`} className="dropdown-item">BOMBILLAS</Link>
+                                        <Link to={`/ItemListContainer/MATERAS`} className="dropdown-item">MATERAS</Link>
+                                        <Link to={`/ItemListContainer/TERMOS`} className="dropdown-item">TERMOS</Link>
                                         <Link to={`/ItemListContainer`} className="dropdown-item">VER TODOS</Link>
                                     </div>
                                 </li>
