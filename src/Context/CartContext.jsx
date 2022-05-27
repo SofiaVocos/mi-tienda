@@ -6,9 +6,12 @@ export const GlobalContext = createContext ('') //PASO 1: le digo a React que Gl
 const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a tener muchos children
 
     const [carrito, setCarrito] = useState ([])
+
+    const [loading, setLoading] = useState(false)
   
     const addItem = (product) => {
-      if (isInCart()) {
+      if (isInCart(carrito, product)) {
+        setCarrito(joinItem(carrito,product))
         alert ("el producto ya fue agregado")} else {
         setCarrito([...carrito, product])
       }
@@ -22,16 +25,34 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       setCarrito ([])
     };
 
-    const priceTotal = () => {
-      return carrito.reduce((acc, product) => acc + product.price * product.cantidad, 0)
+    const total = (carrito) => {
+      let suma = 0;
+      for (let i = 0; i < carrito.length; i++) {
+        suma = suma + carrito[i].quantity * carrito[i].price;
+      }
+      return suma;
+    };
+
+    // const total = () => {
+    //   return carrito.reduce((acc, product) => acc + product.price * product.quantity, 0)
+    // }
+
+    // const quantityTotal = () => {
+    //   return carrito.reduce((acc, product) => acc + product.quantity, 0)
+    // } 
+
+    const isInCart = (carrito, product) => {
+      return carrito.some( item => item.id === product.id )
     }
 
-    const quantityTotal = () => {
-      return carrito.reduce((acc, product) => acc + product.cantidad, 0)
-    } 
-
-    const isInCart = (id) => {
-      return carrito.some( product => product.id === id )
+    const joinItem = (carrito,product) =>{
+      return carrito.map((item) => {
+        if(item.id === product.id){
+          item.quantity = product.quantity;
+          item.stock = product.stock;
+        }
+        return item;
+      } )
     }
 
   return ( //PASO 3: Utilizo el Context, es decir, utilizo el GlobalContext para proveer información. Indico que es el PROVEEDOR
@@ -40,8 +61,9 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       addItem, 
       removeItem, 
       clear, 
-      priceTotal, 
-      quantityTotal,
+      total, 
+      loading,
+      setLoading
       }}>
         {children} 
     </GlobalContext.Provider> 
