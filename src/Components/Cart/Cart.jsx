@@ -43,7 +43,7 @@ const Cart = () => {
                   </div>
 
                   <div className="col col-12 col-md-6 py-2 my-4">
-                    <Formulario total={total(carrito)} compra={carrito} />
+                    <Formulario total={total(carrito)} cart={carrito} />
                   </div>
                 </div>
 
