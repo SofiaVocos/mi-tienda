@@ -6,7 +6,7 @@ import './styleItemCount.css'
 const ItemCount = ({ item, stock, initial}) => {
 
     const [quantity, setQuantity] = useState(initial);
-    const { carrito, addItem, isInCart } = useContext(GlobalContext);
+    const {carrito, addItem, isInCart } = useContext(GlobalContext);
     
     const product = item && {
         ...item,
@@ -14,8 +14,9 @@ const ItemCount = ({ item, stock, initial}) => {
     };
 
     const onAdd = () => {
-        if (stock < 0 || quantity <= 0)
-        return addItem (product);
+        if (quantity > 0) {
+            addItem (product);
+        }
     }
 
     const handleRemoveItem = () => {

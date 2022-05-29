@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../../Context/CartContext';
+import { Link } from 'react-router-dom';
 import CartItem from '../CartItem/CartItem';
 import Formulario from '../Formulario/Formulario';
+import Icons from '../Icons/Icons';
 import { BsInfoCircle } from "react-icons/bs";
 
 const CartContainer = () => {
@@ -23,7 +25,7 @@ const CartContainer = () => {
                                     <CartItem key={index} item={item}/>
                                 </div>
                                 <div className='col-md-6 col-sm12'>
-                                    <Formulario total = {total(carrito)}/>
+                                    <Formulario/>
                                 </div>
                             </div>
                             <div className='clear'>

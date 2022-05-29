@@ -21,10 +21,7 @@ const useFirebase = () => {
     };
 
   return (
-    products,
-    product,
-    fetchGenerateTicket,
-    fetchUpdateDoc
+    fetchGenerateTicket
   )
 }
 

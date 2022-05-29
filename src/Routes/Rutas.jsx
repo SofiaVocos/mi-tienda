@@ -6,7 +6,7 @@ import Home from '../Views/Home/Home';
 import Layout from '../Components/Layout/Layout';
 import Contact from '../Views/Contact/Contact';
 import Error from '../Views/Error/Error';
-import Cart from '../Components/CartItem/CartItem';
+import CartContainer from '../Components/CartContainer/CartContainer';
 
 const Rutas = () => {
   return (
@@ -19,7 +19,7 @@ const Rutas = () => {
                   <Route path="/Contact" element={<Contact/>}/>
                   <Route path="/ItemDetailContainer/:ItemId" element = {<ItemDetailContainer/>}/>
                   <Route path="/ItemListContainer/:CategoryId" element = {<ItemListContainer/>}/>
-                  <Route path="/Cart" element = {<Cart/>}/>
+                  <Route path="/Cart" element = {<CartContainer/>}/>
                 </Route>
                 <Route path="*" element={<Error/>}/>
             </Routes>

@@ -37,9 +37,9 @@ const validation = (campos) => {
   return campos.some((campo) => campo === "")
 }
 
-const Formulario = (total) => {
+const Formulario = () => {
  
-  const {clear, total, carrito} = useContext (GlobalContext);
+  const {clear, totalPrice, carrito} = useContext (GlobalContext);
   const {fetchGenerateTicket} = useFirebase();
 
   const [formulario, setFormulario] = useState ({
@@ -49,7 +49,7 @@ const Formulario = (total) => {
       apellido: "",
       telefono:"",
     },
-    total: total,
+    total: totalPrice,
     items: carrito,
   });
 
@@ -120,7 +120,7 @@ const Formulario = (total) => {
           <p className='fs-4 text-uppercase'>total</p>
         </div>
         <div className="col-12 col-lg-3">
-          <p className="fs-4">${total}</p>
+          <p className="fs-4">${totalPrice}</p>
         </div>
         <button type="submit" className="btn btn-primary text-uppercase w-100 my-4">
           finalizar compra

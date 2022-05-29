@@ -41,7 +41,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       setCarrito ([])
     };
 
-    const total = (carrito) => {
+    const totalPrice = (carrito) => {
       let suma = 0;
       for (let i = 0; i < carrito.length; i++) {
         suma = suma + carrito[i].quantity * carrito[i].price;
@@ -56,7 +56,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       isInCart,
       removeItem, 
       clear, 
-      total, 
+      totalPrice, 
       loading,
       setLoading
       }}>
