@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import useFirebase from "../../Hooks/useFirebase";
+import React, {useState, useContext } from 'react';
+import useFirebase from '../../Hooks/useFirebase';
 import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../Context/CartContext';
@@ -33,9 +33,13 @@ const Input = ({
   );
 };
 
-const Formulario = ({total, cart}) => {
+const validation = (campos) => {
+  return campos.some((campo) => campo === "")
+}
+
+const Formulario = (total) => {
  
-  const {clear} = GlobalContext ();
+  const {clear, total, carrito} = useContext (GlobalContext);
   const {fetchGenerateTicket} = useFirebase();
 
   const [formulario, setFormulario] = useState ({
@@ -46,12 +50,8 @@ const Formulario = ({total, cart}) => {
       telefono:"",
     },
     total: total,
-    cart: cart,
+    items: carrito,
   });
-
-  const validation = (campos) => {
-    return campos.some((campo) => campo === "")
-  }
 
   const [error,  setError] = useState ({});
 
@@ -98,94 +98,22 @@ const Formulario = ({total, cart}) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="container border">
       <h3 className='text-center my-4'>Datos</h3>
-      {Object.keys(formulario.buyer).map((key,index)=> (
+      {Object.keys(formulario.buyer).map((key,index) => (
         <Input
-        key={index}
-        className="mb-3"
-        type="text"
-        name={`${key}`}
-        value={key.value}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        inputClassName={`form-control ${error[key] && "is-invalid"}`}
-        placeholder={`${key}`}
-        error={error}
+          key={index}
+          className="mb-3"
+          type="text"
+          name={`${key}`}
+          value={key.value}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          inputClassName={`form-control ${error[key] && "is-invalid"}`}
+          placeholder={`${key}`}
+          error={error}
         />
       ))}
-
-      <Input
-        className="mb-3"
-        type="text"
-        name="nombre"
-        value={nombre}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        inputClassName={`form-control ${error.nombre && "is-invalid"}`}
-        placeholder={"Ej: Sofía"}
-        error={error}
-      />
-
-      <div className='mb-3'>
-        <Input
-          type="text"
-          name="nombre"
-          value={nombre}
-          onChange={handleChange}
-          onBlur={(e)=>handleBlur(e)}
-          className={`form-control ${error.nombre && "is-invalid"}`}
-          placeholder={"Ej: Sofía"}
-        />
-        {error.nombre && (
-          <h6 className='text-danger my-2 text-uppercase'>{error.nombre}</h6>
-        )}
-      </div>
-
-      <div className='mb-3'>
-        <Input
-          type="text"
-          name="apellido"
-          value={apellido}
-          onChange={handleChange}
-          onBlur={(e)=>handleBlur(e)}
-          className={`form-control ${error.apellido && "is-invalid"}`}
-          placeholder={"Ej: Vocos Domene"}
-        />
-        {error.apellido && (
-          <h6 className='text-danger my-2 text-uppercase'>{error.apellido}</h6>
-        )}
-      </div>
-
-      <div className='mb-3'>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          onBlur={(e)=>handleBlur(e)}
-          className={`form-control ${error.email && "is-invalid"}`}
-          placeholder={"Ej: vocosdomenesofia@gmail.com"}
-        />
-        {error.email && (
-          <h6 className='text-danger my-2 text-uppercase'>{error.email}</h6>
-        )}
-      </div>
-
-      <div className='mb-3'>
-        <Input
-          type="text"
-          name="telefono"
-          value={telefono}
-          onChange={handleChange}
-          onBlur={(e)=>handleBlur(e)}
-          className={`form-control ${error.email && "is-invalid"}`}
-          placeholder={"Ej: 3513456789"}
-        />
-        {error.telefono && (
-          <h6 className='text-danger my-2 text-uppercase'>{error.telefono}</h6>
-        )}
-      </div>
 
       <div className='border row d-flex px-2'>
         <div className='col-12 col-lg-9'>

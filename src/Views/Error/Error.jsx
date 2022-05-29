@@ -3,7 +3,7 @@ import './styleError.css';
 
 const Error = () => {
   return (
-    <h1>404 Página no existe</h1>
+    <h3>Error 404 Page Not Found</h3>
   )
 }
 

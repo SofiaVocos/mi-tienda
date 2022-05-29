@@ -2,27 +2,16 @@ import React from 'react';
 import './styleItemList.css';
 import Item from '../Item/Item';
 
-const ItemList = ({ products }) => { //products es un PARÁMETRO
+const ItemList = ({ items }) => { //items es un PARÁMETRO
 
   return (
     <>
       <div className='d-flex flex-wrap justify-content-around'>
-        {products.length > 0 ? (
-          products.map((item) => (
+        {items ? (
+          items.map((product) => (
             <Item
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              pictureUrl={item.pictureUrl}
-              pictureAlt={item.pictureAlt}
-              category={item.category}
-              description={item.description}
-              price={item.price}
-              stock={item.stock}
-              img1={item.img1}
-              img2={item.img2}
-              img3={item.img3}
-              img4={item.img4}
+              key={product.id}
+              item= {product}
             />
           ))
         ) : (

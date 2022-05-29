@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import db from '../../Service/Firebase';
-import {getDocs, collection, query, where} from 'firebase/firestore';
-
+import {query, where, getDocs, collection} from 'firebase/firestore';
 
 const ItemListContainer = () => {
 
-  const [products, setProducts] = useState ([]); //Los useState se colocan arriba de todo
-
-  const { CategoryId } = useParams()
+  const { CategoryId } = useParams();
+  const [products, setProducts] = useState ([]);
 
   
-  const getData = async () => {
+  const fetchGetDataCollection = async () => {
 
     const col = collection (db, 'productos')
 
@@ -31,13 +29,14 @@ const ItemListContainer = () => {
 
   useEffect(() => {
 
-    getData ()
+    fetchGetDataCollection ();
     
-  }, [CategoryId])
+  }, [CategoryId]);
   
+
   return (
     <>
-      <ItemList products={products}/>
+      <ItemList items={products}/>
     </>
   );
 }

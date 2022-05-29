@@ -1,21 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../../Context/CartContext';
+import { Link } from 'react-router-dom';
 import './styleItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd}) => {
+const ItemCount = ({ item, stock, initial}) => {
 
-    const [counter, setCounter] = useState(initial);
+    const [quantity, setQuantity] = useState(initial);
+    const { carrito, addItem, isInCart } = useContext(GlobalContext);
+    
+    const product = item && {
+        ...item,
+        quantity,
+    };
 
-    const restar = () => {
-        if (counter > initial) {
-            setCounter(counter - 1);
+    const onAdd = () => {
+        if (stock < 0 || quantity <= 0)
+        return addItem (product);
+    }
+
+    const handleRemoveItem = () => {
+        if (quantity > initial) {
+            setQuantity(quantity - 1);
         } else {
             alert('ESTA ACCIÓN ES INCORRECTA')
         }
     };
 
-    const sumar = () => {
-        if (counter < stock) {
-            setCounter(counter + 1);
+    const handleAddItem = () => {
+        if (quantity < stock) {
+            setQuantity(quantity + 1);
         } else {
             alert('DISCULPE, NO HAY MÁS STOCK')
         }
@@ -23,17 +36,25 @@ const ItemCount = ({ stock, initial, onAdd}) => {
 
     return (
         <>
-            <div className='container-fluid d-flex flex-column align-items-center'>
-                <div className='d-flex justify-content-center'>
-                    <button type="button" className="add" onClick={restar}>−</button>
-                    <p className='counter'>{counter}</p>
-                    <button type="button" className="add" onClick={sumar}>+</button>
-                </div>
-
-                
+            {!isInCart (carrito,item) ? (
+                <div className='container-fluid d-flex flex-column align-items-center'>
                     <div className='d-flex justify-content-center'>
-                        <button type="button" className="btn btn2" onClick ={() => onAdd (counter) }>AÑADIR AL CARRITO</button>
+                        <button type="button" className="add" onClick={handleRemoveItem}>−</button>
+                        <p className='counter'>{quantity}</p>
+                        <button type="button" className="add" onClick={handleAddItem}>+</button>
                     </div>
+
+                    <div className='d-flex justify-content-center'>
+                        <button type="button" className="btn btn2" onClick ={() => onAdd (product) }>AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <Link to="/Cart" className="btn btn2">IR AL CARRITO</Link>
+                </>
+            )}
+            <div className="mt-5 text-center">
+                <Link to={`/ItemListContainer`}>Volver a la tienda</Link>
             </div>
         </>
     )

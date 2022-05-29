@@ -6,7 +6,7 @@ import Home from '../Views/Home/Home';
 import Layout from '../Components/Layout/Layout';
 import Contact from '../Views/Contact/Contact';
 import Error from '../Views/Error/Error';
-import Cart from '../Components/Cart/Cart';
+import Cart from '../Components/CartItem/CartItem';
 
 const Rutas = () => {
   return (

@@ -1,29 +1,28 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { GlobalContext } from '../../Context/CartContext';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import './styleItemDetail.css';
 
-const ItemDetail = ({ productDetail: {id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4}}) => {
+const ItemDetail = ({item}) => {
 
-    const {carrito, addItem} = useContext (GlobalContext)
 
-    const [quantityBuy, setQuantityBuy] = useState(false)
+    // const {carrito, addItem} = useContext (GlobalContext)
+
+    // const [quantityBuy, setQuantityBuy] = useState(false)
     
-    const onAdd = (counter) => {
-        setQuantityBuy(true)
-        console.log (counter)
-    }
+    // const onAdd = (quantity) => {
+    //     setQuantityBuy(true)
+    //     console.log (quantity)
+    // }
 
-    const [state, setState] = useState ({
+    // const [state, setState] = useState ({
         
-    })
+    // })
 
-    useEffect(() => {
-        setState ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4})
-    }, [title])
+    // useEffect(() => {
+    //     setState ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4})
+    // }, [title])
     
-    console.log (carrito)
+    // console.log (carrito)
 
     return (
         <>
@@ -31,20 +30,20 @@ const ItemDetail = ({ productDetail: {id, title, pictureUrl, pictureAlt, categor
                 <div className='row container-fluid'>
                     <div className='col-lg-8 col-md-12 carrusel'>
                         <div className='carrusel-left d-flex flex-column'>
-                            <img src={img1} alt={pictureAlt}/>
-                            <img src={img2} alt={pictureAlt}/>
-                            <img src={img3} alt={pictureAlt}/>
-                            <img src={img4} alt={pictureAlt}/>
+                            <img src={item.img1} alt={item.title}/>
+                            <img src={item.img2} alt={item.title}/>
+                            <img src={item.img3} alt={item.title}/>
+                            <img src={item.img4} alt={item.title}/>
                         </div>
                         <div className='carrusel-right'>
-                            <img src={pictureUrl} alt={pictureAlt}/>
+                            <img src={item.pictureUrl} alt={item.title}/>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-12 information">
-                        <h2 className='title'>{title}</h2>
-                        <h3 className='price'>${price}</h3>
-                        <p>{description}</p>
-                        <p className='stock'>{stock} DISPONIBLES</p>
+                        <h2 className='title'>{item.title}</h2>
+                        <h3 className='price'>${item.price}</h3>
+                        <p>{item.description}</p>
+                        <p className='stock'>{item.stock} DISPONIBLES</p>
                         <div className='rating'>
                             <input type="radio" name="rating" value="5" id="5"/>
                             <label htmlFor='5'>☆</label>
@@ -58,20 +57,28 @@ const ItemDetail = ({ productDetail: {id, title, pictureUrl, pictureAlt, categor
                             <label htmlFor='1'>☆</label>
                         </div>
 
-                        {quantityBuy ? (
+                        <div>
+                            <ItemCount 
+                                item={item}
+                                stock={item.stock}
+                                initial={1}
+                            />
+                        </div>
+
+                        {/* {quantityBuy ? (
                             <>
                                 <Link to="/Cart" className="btn btn2" onClick ={() => addItem (state)}>FINALIZAR COMPRA</Link>
                                 <Link to="/ItemListContainer" className="btn btn2" onClick ={() => addItem (state)}>CONTINUAR COMPRA</Link>
                             </>
                         ) : (
                             <ItemCount
-                                stock={stock}
+                                item = {item}
+                                stock={item.stock}
                                 initial={1}
-                                onAdd={onAdd}
                             />
-                        )}
+                        )} */}
 
-                        <p className='category'>CATEGORÍA: {category}</p>
+                        <p className='category'>CATEGORÍA: {item.category}</p>
                     </div>
                 </div>
             </div>

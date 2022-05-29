@@ -1,42 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import './styleItemDetailContainer.css';
 import db from '../../Service/Firebase';
 import {getDoc, doc} from 'firebase/firestore';
-
+import './styleItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
 
-    const [productDetail, setProductDetail] = useState(null)
+    const { ItemId } = useParams();
+    const [product, setProduct] = useState ({});
 
-    const { ItemId } = useParams()
-
-    const getItem = async () => {
+    const fetchGetItem = async () => {
 
         const item = doc (db, 'productos', ItemId)
     
         try {
           const prod = await getDoc (item)
           const result =  ({id:prod.id, ...prod.data()})
-          setProductDetail (result)
+          setProduct (result)
           console.log (result)
           
         } catch (error) {
           console.log (error)
         }
     }
-    
+
     useEffect(() => {
     
-        getItem ()
+        fetchGetItem ();
         
-    }, [ItemId])
+    }, [ItemId]);
     
     return (
         <>
-            {productDetail ? (
-                <ItemDetail productDetail={productDetail}/>) 
+            {product ? (
+                <ItemDetail item={product}/>) 
                 : (
                     <div className="spinner">
                         <svg viewBox="25 25 50 50" className="circular">

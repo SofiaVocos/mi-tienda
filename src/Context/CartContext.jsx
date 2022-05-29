@@ -5,20 +5,36 @@ export const GlobalContext = createContext ('') //PASO 1: le digo a React que Gl
 
 const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a tener muchos children
 
-    const [carrito, setCarrito] = useState ([])
+    const [carrito, setCarrito] = useState ([]);
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
   
-    const addItem = (product) => {
-      if (isInCart(carrito, product)) {
-        setCarrito(joinItem(carrito,product))
-        alert ("el producto ya fue agregado")} else {
-        setCarrito([...carrito, product])
+    const addItem = (item) => {
+      if (isInCart(carrito, item)) {
+        setCarrito(joinItem(carrito, item))
+        alert ("el producto ya fue agregado")
+      } else {
+        setCarrito([...carrito, item])
+        alert ("producto correctamente agregado")
       }
+    };
+
+    const isInCart = (carrito, item) => {
+      return carrito.some( x => x.id === item.id )
+    };
+
+    const joinItem = (carrito, item) =>{
+      return carrito.map((x) => {
+        if(x.id === item.id){
+          x.quantity = item.quantity;
+          x.stock = item.stock;
+        }
+        return x;
+      } )
     };
     
     const removeItem = (id) =>{
-      setCarrito(carrito.filter (product => product.id !== id)) 
+      setCarrito(carrito.filter (y => y.id !== id)) 
     }; 
 
     const clear = () => {
@@ -33,32 +49,11 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       return suma;
     };
 
-    // const total = () => {
-    //   return carrito.reduce((acc, product) => acc + product.price * product.quantity, 0)
-    // }
-
-    // const quantityTotal = () => {
-    //   return carrito.reduce((acc, product) => acc + product.quantity, 0)
-    // } 
-
-    const isInCart = (carrito, product) => {
-      return carrito.some( item => item.id === product.id )
-    }
-
-    const joinItem = (carrito,product) =>{
-      return carrito.map((item) => {
-        if(item.id === product.id){
-          item.quantity = product.quantity;
-          item.stock = product.stock;
-        }
-        return item;
-      } )
-    }
-
   return ( //PASO 3: Utilizo el Context, es decir, utilizo el GlobalContext para proveer información. Indico que es el PROVEEDOR
     <GlobalContext.Provider value={{
       carrito, 
-      addItem, 
+      addItem,
+      isInCart,
       removeItem, 
       clear, 
       total, 

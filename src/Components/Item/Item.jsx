@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import './styleItem.css';
 
 
-const Item = ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4,}) => {
+const Item = ({item: {id, title, pictureUrl, category, description, price, stock, img1, img2, img3, img4},}) => {
 
   return (
     <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
       <div className="card">
-        <img className="card-img-top" src={pictureUrl} alt={pictureAlt}/>
+        <img className="card-img-top" src={pictureUrl} alt={title}/>
         <div className="card-body">
           <p className="category1">{category}</p>
           <p className="card-title">{title}</p>
