@@ -4,26 +4,6 @@ import './styleItemDetail.css';
 
 const ItemDetail = ({item}) => {
 
-
-    // const {carrito, addItem} = useContext (GlobalContext)
-
-    // const [quantityBuy, setQuantityBuy] = useState(false)
-    
-    // const onAdd = (quantity) => {
-    //     setQuantityBuy(true)
-    //     console.log (quantity)
-    // }
-
-    // const [state, setState] = useState ({
-        
-    // })
-
-    // useEffect(() => {
-    //     setState ({id, title, pictureUrl, pictureAlt, category, description, price, stock, img1, img2, img3, img4})
-    // }, [title])
-    
-    // console.log (carrito)
-
     return (
         <>
             <div className='detail'>
@@ -64,19 +44,6 @@ const ItemDetail = ({item}) => {
                                 initial={1}
                             />
                         </div>
-
-                        {/* {quantityBuy ? (
-                            <>
-                                <Link to="/Cart" className="btn btn2" onClick ={() => addItem (state)}>FINALIZAR COMPRA</Link>
-                                <Link to="/ItemListContainer" className="btn btn2" onClick ={() => addItem (state)}>CONTINUAR COMPRA</Link>
-                            </>
-                        ) : (
-                            <ItemCount
-                                item = {item}
-                                stock={item.stock}
-                                initial={1}
-                            />
-                        )} */}
 
                         <p className='category'>CATEGORÍA: {item.category}</p>
                     </div>

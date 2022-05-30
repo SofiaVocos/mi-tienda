@@ -6,8 +6,6 @@ export const GlobalContext = createContext ('') //PASO 1: le digo a React que Gl
 const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a tener muchos children
 
     const [carrito, setCarrito] = useState ([]);
-
-    const [loading, setLoading] = useState(false);
   
     const addItem = (item) => {
       if (isInCart(carrito, item)) {
@@ -41,7 +39,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       setCarrito ([])
     };
 
-    const totalPrice = (carrito) => {
+    const total = (carrito) => {
       let suma = 0;
       for (let i = 0; i < carrito.length; i++) {
         suma = suma + carrito[i].quantity * carrito[i].price;
@@ -56,9 +54,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       isInCart,
       removeItem, 
       clear, 
-      totalPrice, 
-      loading,
-      setLoading
+      total, 
       }}>
         {children} 
     </GlobalContext.Provider> 

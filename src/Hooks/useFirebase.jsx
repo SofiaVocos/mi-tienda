@@ -1,11 +1,10 @@
-import {useContext } from 'react';
-import { GlobalContext } from '../Context/CartContext';
+import {useState} from 'react';
 import db from '../Service/Firebase';
 import {collection, addDoc} from 'firebase/firestore';
 
 const useFirebase = () => {
 
-    const {setLoading} = useContext(GlobalContext);
+    const [loading, setLoading] = useState(false);
 
 
     const fetchGenerateTicket = async ({datos}) => {
@@ -21,6 +20,8 @@ const useFirebase = () => {
     };
 
   return (
+    loading,
+    setLoading,
     fetchGenerateTicket
   )
 }
