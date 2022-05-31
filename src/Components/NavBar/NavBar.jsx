@@ -1,8 +1,9 @@
 import React from 'react';
 import './styleNavBar.css';
 import Icons from '../Icons/Icons';
-import { FaSearch, FaUserAlt, FaHeart } from 'react-icons/fa';
+import { FaUserAlt, FaHeart } from 'react-icons/fa';
 import CartWidget from '../CartWidget/CartWidget';
+import Search from '../Search/Search';
 import mate from '../../Assets/mate.png';
 import { Link, NavLink} from 'react-router-dom';
 
@@ -15,12 +16,7 @@ const NavBar = () => {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-5 col-sm-12 mb-1">
-                                <form className="d-flex input-group w-auto my-auto mb-3">
-                                    <input type="search" className="form-control" placeholder="¿Qué estás buscando?" />
-                                    <span className="input-group-text border-0 d-flex ml-1">
-                                        <Icons Icon={FaSearch} color={"FCE373"} size={"20px"} />
-                                    </span>
-                                </form>
+                                <Search/>
                             </div>
 
                             <div className="col-md-7 col-sm-12 d-flex justify-content-center justify-content-md-end align-items-center">

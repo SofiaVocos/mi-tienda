@@ -24,7 +24,7 @@ const CartContainer = () => {
                         </section>
 
                         <div className='col-md-6 col-sm12'>
-                            <Formulario total={total(carrito)} compra={carrito}/>
+                            <Formulario total={total(carrito)} items={carrito}/>
                         </div>
                     </>
                     

@@ -8,7 +8,6 @@ const ItemListContainer = () => {
 
   const { CategoryId } = useParams();
   const [products, setProducts] = useState ([]);
-
   
   const fetchGetDataCollection = async () => {
 

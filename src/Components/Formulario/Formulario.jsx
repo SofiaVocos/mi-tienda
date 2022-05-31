@@ -1,5 +1,6 @@
 import React, {useState, useContext } from 'react';
-import useFirebase from '../../Hooks/useFirebase';
+import db from '../../Service/Firebase';
+import {collection, addDoc} from 'firebase/firestore';
 import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../Context/CartContext';
@@ -37,10 +38,24 @@ const validation = (campos) => {
   return campos.some((campo) => campo === "")
 }
 
-const Formulario = ({total, compra}) => {
+const Formulario = ({total, items}) => {
  
   const {clear} = useContext (GlobalContext);
-  const {fetchGenerateTicket} = useFirebase();
+
+  const [loading, setLoading] = useState(false);
+
+  
+  const fetchGenerateTicket = async ({datos}) => {
+    setLoading (true)
+    try {
+        const col = collection (db,"ordenes")
+        const order = await addDoc(col, datos)
+        setLoading(false)
+        console.log(order.id)
+    } catch (error) {
+        console.log (error);
+    }
+  };
 
   const [formulario, setFormulario] = useState ({
     buyer:{
@@ -50,7 +65,7 @@ const Formulario = ({total, compra}) => {
       telefono:"",
     },
     total: total,
-    compra: compra,
+    items: items,
   });
 
   const [error,  setError] = useState ({});
