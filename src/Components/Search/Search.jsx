@@ -1,50 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext} from 'react'
 import Icons from '../Icons/Icons';
 import { FaSearch } from 'react-icons/fa';
-import db from '../../Service/Firebase';
-import { getDocs, collection} from 'firebase/firestore';
+import { GlobalContext } from '../../Context/CartContext';
 
 const Search = () => {
 
-  const [search, setSearch] = useState("");
-  const [products, setProducts] = useState([]);
-
-
-  const fetchGetDataCollection = async () => {
-
-    const col = collection(db, 'productos')
-
-    try {
-      const data = await getDocs(col)
-      const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
-      setProducts(result)
-      console.log(result)
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-
-    fetchGetDataCollection();
-
-  }, []);
+  const {search, setSearch} = useContext (GlobalContext);
 
 
   const handleChange = (e) => {
-    setSearch(e.target.value)
-    // console.log(e.target.value)
-  }
-
-  let result = []
-
-  if (!search) {
-    result = products
-  } else {
-    result = products.filter((dato) =>
-      dato.category.toLowerCase().includes(search.toLocaleLowerCase())
-    )
+    setSearch(e.target.value);
+    // console.log (e.target.value);
   }
 
   return (

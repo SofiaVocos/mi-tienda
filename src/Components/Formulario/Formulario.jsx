@@ -40,9 +40,7 @@ const validation = (campos) => {
 
 const Formulario = ({total, items}) => {
  
-  const {clear} = useContext (GlobalContext);
-
-  const [loading, setLoading] = useState(false);
+  const {clear, setLoading} = useContext (GlobalContext);
 
   
   const fetchGenerateTicket = async ({datos}) => {
