@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../Carousel/Carousel';
 import ItemCount from '../ItemCount/ItemCount';
 import './styleItemDetail.css';
 
@@ -9,15 +10,7 @@ const ItemDetail = ({item}) => {
             <div className='detail'>
                 <div className='row container-fluid'>
                     <div className='col-lg-8 col-md-12 carrusel'>
-                        <div className='carrusel-left d-flex flex-column'>
-                            <img src={item.img1} alt={item.title}/>
-                            <img src={item.img2} alt={item.title}/>
-                            <img src={item.img3} alt={item.title}/>
-                            <img src={item.img4} alt={item.title}/>
-                        </div>
-                        <div className='carrusel-right'>
-                            <img src={item.pictureUrl} alt={item.title}/>
-                        </div>
+                        {item.images && <Carousel images={item.images} />}
                     </div>
                     <div className="col-lg-4 col-md-12 information">
                         <h2 className='title'>{item.title}</h2>

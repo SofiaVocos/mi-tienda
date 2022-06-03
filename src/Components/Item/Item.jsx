@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './styleItem.css';
 
 
-const Item = ({item: {id, title, pictureUrl, category, description, price, stock, img1, img2, img3, img4},}) => {
+const Item = ({item: {id, title, pictureUrl, category, description, price, stock, images},}) => {
 
   return (
     <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
