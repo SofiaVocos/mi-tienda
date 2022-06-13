@@ -9,39 +9,39 @@
 
 body {
     font-family:'Kanit', sans-serif;
-    background-image: url("https://img.freepik.com/foto-gratis/fondo-madera-claro_53876-88877.jpg?w=2000");
-    padding-bottom: 3rem;
+    overscroll-behavior: none;
+    overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
-    color: black !important;
     background-color: transparent !important;
 }
 
 .nav1 {
-    background-color: black;
+    background-color: #000000;
     padding: 1rem 1rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.nav1 p {
-    color: #FCE373;
-    margin-bottom: 0.5rem;
-    font-size: 0.8rem;
+.buscador{
+    flex:60%;
+    position: relative;
+    flex-wrap: wrap;
 }
 
-.form-control {
-    border: 3px solid #86A557 !important;
-    height: calc(1.5em + 1.2rem + 2px);
-}
-
-.input-group-text {
-    background-color: #86A557;
-    padding: 0.3rem 0.75rem;  
+.widget{
+    flex: 40%;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 0.8rem;
 }
 
 .nav2 {
-    background-color: #b7df7c;
+    background-color: #333333;
 }
 
 .navbar {
@@ -73,55 +73,15 @@ a {
 }
 
 .dropdown-menu {
-    background-color: #86A557;
+    background-color: #333333;
     border: none;
 }
 
 .dropdown-menu a {
     font-weight: 600;
+    color: rgba(255,255,255,.75);
 }
 
-.logo h1 {
-    position: absolute;
-    padding-top: 0.5rem;
-}
-
-.logo p {
-    color: black;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-left: 6.5rem;
-    margin-top: 2.8rem;
-    margin-bottom: 0.1rem;
-}
-
-.logo img {
-    margin-bottom: 0.2rem;
-}
-
-.border {
-    color: #86A557;
-    text-shadow:
-        -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-        1px 1px 0 black;
-    border: none !important;
-}
-
-.wave {
-    color: black;
-    animation: wave 3s ease-in-out infinite;
-}
-
-@keyframes wave {
-
-    0%,
-    100% {
-        clip-path: polygon(0% 47%, 10% 48%, 33% 54%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
-    }
-
-    50% {
-        clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
-    }
+.dropdown-item:hover {
+    color: #FFFFFF;
 }

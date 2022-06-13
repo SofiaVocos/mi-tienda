@@ -1,63 +1,69 @@
 .card {
-    margin: 0 auto;
-    max-width: 75%;
-    background-color: #fdcb5e;
-    transition: all .2s;
+    margin: 0.8rem auto;
 }
 
 .card-img-top {
     border-bottom: #fdc91c 2px solid;
     object-fit: cover;
+    width: 100%;
+    height: 55vh;
 }
 
-.category1{
-    font-size: 0.9rem;
+.card-category{
+    font-size: 0.8rem;
     text-align: left;
     margin-bottom: 0;
     text-transform: uppercase;
 }
 
 .card-title {
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
     text-align: left;
+    text-transform: uppercase;
 }
 
-.card-text {
-    color: white;
+.card-price {
+    color: #000000;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-.btn {
-    display: inline-block;
-    width: 100%;
-    font-size: .8rem;
-    font-weight: bold;
-    padding: 0.5em 4.2em;
-    color: black;
-    border: 2px solid #86A557;
-    cursor: pointer;
-    position: relative;
-    background-color: transparent;
+.boton {
     text-decoration: none;
-    overflow: hidden;
-    z-index: 1;
-    font-family: inherit;
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    appearance: none;
+    text-transform: uppercase;
+    white-space: normal;
+    transition: all 200ms ease;
+    padding: 0.8125rem;
+    background-color: #000000;
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    letter-spacing: 0.125rem;
+    font-weight: bold;
+    font-size: 0.875rem;
+    border-radius: 2.5rem;
+    float: left;
     width: 100%;
-    height: 100%;
-    background-color: #86A557;
-    transform: translateX(-100%);
-    transition: all .5s ease;
-    z-index: -1;
 }
 
-.btn:hover::before {
-    transform: translateX(0);
+.boton:hover{
+    opacity: 0.8
+}
+
+@media screen and  (min-width: 349px) and (max-width: 576px) {
+    .card-img-top {
+        height: auto;
+    }
+
+    .boton {
+        padding: 0.7rem;
+        letter-spacing: 0.1rem;
+        font-size: 0.8rem;
+        border-radius: 2rem;
+    }
 }

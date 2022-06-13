@@ -1,21 +1,34 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState} from 'react';
+import Swal from "sweetalert2";
+export const GlobalContext = createContext ('')
 
-export const GlobalContext = createContext ('') //PASO 1: le digo a React que GlobalContext es un Context con el createContext (Hooh para PROVEER información). Va en un export para que lo podamos importar después.
 
-
-const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a tener muchos children
+const CartContext = ({children}) => {
     
   const [carrito, setCarrito] = useState ([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+
   
   const addItem = (item) => {
     if (isInCart(carrito, item)) {
       setCarrito(joinItem(carrito, item))
-      alert ("el producto ya fue agregado")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'EL PRODUCTO YA FUE AGREGADO. DIRIJASE AL CARRITO DE COMPRAS',
+        showConfirmButton: false,
+        timer: 1500
+    })
     } else {
       setCarrito([...carrito, item])
-      alert ("producto correctamente agregado")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'PRODUCTO CORRECTAMENTE AGREGADO',
+        showConfirmButton: false,
+        timer: 1500
+    })
     }
   };
 
@@ -49,7 +62,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
     return suma;
   };
     
-  return ( //PASO 3: Utilizo el Context, es decir, utilizo el GlobalContext para proveer información. Indico que es el PROVEEDOR
+  return (
     <GlobalContext.Provider value={{
       carrito, 
       addItem,
@@ -60,7 +73,7 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
       loading,
       setLoading,
       search,
-      setSearch
+      setSearch,
       }}>
         {children} 
     </GlobalContext.Provider> 
@@ -68,6 +81,3 @@ const CartContext = ({children}) => {//PASO 2: le digo al Componente que va a te
 }
 
 export default CartContext
-
-//PASO 4: A todos sus hijos (children) les va a PROVEER esa información
-//PASO 5: En el VALUE digo QUÉ voy a proveer. En este caso voy a proveer la info del Carrito

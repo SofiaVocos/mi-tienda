@@ -5,7 +5,7 @@
     --yellow: #ffa700;
     position: relative;
     width: 60px;
-    margin-top: 25%;
+    padding-bottom: 25%;
 }
 
 .spinner:before {

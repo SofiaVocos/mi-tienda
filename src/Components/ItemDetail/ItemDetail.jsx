@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Carousel from '../Carousel/Carousel';
 import ItemCount from '../ItemCount/ItemCount';
 import './styleItemDetail.css';
 
 const ItemDetail = ({item}) => {
+
+    const [stock] = useState(item.stock);
 
     return (
         <>
@@ -13,10 +15,10 @@ const ItemDetail = ({item}) => {
                         {item.images && <Carousel images={item.images} />}
                     </div>
                     <div className="col-lg-4 col-md-12 information">
-                        <h2 className='title'>{item.title}</h2>
-                        <h3 className='price'>${item.price}</h3>
-                        <p>{item.description}</p>
-                        <p className='stock'>{item.stock} DISPONIBLES</p>
+                        <h3 className='title'>{item.title}</h3>
+                        <h4 className='price'>${item.price}</h4>
+                        <p className='description'>{item.description}</p>
+                        <p className='stock'>{stock} DISPONIBLES</p>
                         <div className='rating'>
                             <input type="radio" name="rating" value="5" id="5"/>
                             <label htmlFor='5'>☆</label>
@@ -33,7 +35,6 @@ const ItemDetail = ({item}) => {
                         <div>
                             <ItemCount 
                                 item={item}
-                                stock={item.stock}
                                 initial={1}
                             />
                         </div>

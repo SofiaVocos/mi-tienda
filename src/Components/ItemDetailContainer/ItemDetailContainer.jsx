@@ -1,16 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import db from '../../Service/Firebase';
+import { GlobalContext } from '../../Context/CartContext';
+import Loading from '../Loading/Loading';
 import {getDoc, doc} from 'firebase/firestore';
-import './styleItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
 
     const { ItemId } = useParams();
     const [product, setProduct] = useState ({});
+    const {loading, setLoading} = useContext (GlobalContext);
 
     const fetchGetItem = async () => {
+
+        setLoading(true)
 
         const item = doc (db, 'productos', ItemId)
     
@@ -19,6 +23,7 @@ const ItemDetailContainer = () => {
           const result =  ({id:prod.id, ...prod.data()})
           setProduct (result)
           console.log (result)
+          setLoading(false)
           
         } catch (error) {
           console.log (error)
@@ -26,22 +31,15 @@ const ItemDetailContainer = () => {
     }
 
     useEffect(() => {
-    
+
         fetchGetItem ();
         
     }, [ItemId]);
     
     return (
         <>
-            {product ? (
+            {loading ? (<Loading/>) : (
                 <ItemDetail item={product}/>) 
-                : (
-                    <div className="spinner">
-                        <svg viewBox="25 25 50 50" className="circular">
-                            <circle strokeMiterlimit="10" strokeWidth="3" fill="none" r="20" cy="50" cx="50" className="path"></circle>
-                        </svg>
-                    </div>
-                )
             }
         </>
         
