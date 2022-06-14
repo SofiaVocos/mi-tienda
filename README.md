@@ -25,8 +25,5 @@ Se abre una pestaña del navegador en el puerto 3000:
 ## Backend
 Recordar que tiene un backend realizado con Firebase, por si quieren descargar y correr este proyecto, tienen que generar su backend en firebase sino local con data fake.
 
-## Estructura
-image.png
-
 ## Video
 Hacé click [ACÁ](https://youtu.be/R68qgP1Gau8) para ver un video de demostración del proceso de compra de la app.
